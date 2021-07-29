@@ -3,10 +3,10 @@
     <search-bar></search-bar>
     <flap-card :data="random"></flap-card>
     <scroll :top="scrollTop" @onScroll="onScroll" ref="scroll">
-      <div class="banner-wrapper">
+      <!-- <div class="banner-wrapper">
         <div class="banner-img" :style="{backgroundImage:`url('${banner}')`}"></div>
-      </div>
-      <!-- <carousel
+      </div> -->
+      <carousel
         class="banner-wrapper"
         :per-page="1"
         :autoplay="true"
@@ -15,15 +15,14 @@
         :autoplayDirection="direction"
         :paginationEnabled="false"
         @pageChange="handlePageChange"
-      > -->
-        <!-- <Slide
+      >
+        <Slide
           class="banner-img"
           :style="{backgroundImage:`url('${bannerItem}')`}"
           v-for="(bannerItem, bannerIndex) in banner"
           :key="bannerIndex"
-        ></Slide> -->
-        <!-- <Slide class="banner-img" :style="{backgroundImage:`url('${banner[0]}')`}"></Slide> -->
-      <!-- </carousel> -->
+        ></Slide>
+      </carousel>
       <guess-you-like :data="guessLikes"></guess-you-like>
       <recommend :data="recommend" class="recommend"></recommend>
       <featured
@@ -106,7 +105,7 @@ export default {
         const randIndex = Math.floor(Math.random() * data.random.length)
         this.random = data.random[randIndex]
         this.banner = data.banner
-        this.guessLikes = data.guessYouLike
+        this.guessLikes = data.guessLikes
         this.recommend = data.recommend
         this.featured = data.featured
         this.categoryList = data.categoryList

@@ -17,6 +17,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import { ebookMixin } from '../../utils/mixin'
 import Epub from 'epubjs'
 import {

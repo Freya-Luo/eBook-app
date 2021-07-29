@@ -30,6 +30,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import { storeShelfMixin } from '../../utils/mixin'
 import {
   removeBookFromShelf,
