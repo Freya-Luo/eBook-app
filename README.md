@@ -64,3 +64,9 @@
 - `ps -ef|grep node` check node server status
 - `kill -9 PROCESS_ID`
   <br>
+
+---
+
+fake PayPal account in this app:
+user: sb-p60m476944604@business.example.com
+pw: Ldf6PV=q
