@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="hot-search-title">
-      <span class="label">{{label}}</span>
-      <span class="btn">{{btn}}</span>
+      <span class="label">{{ label }}</span>
+      <span class="btn">{{ btn }}</span>
     </div>
     <div class="hot-search-list">
       <div class="hot-search-item" v-for="(item, index) in hotSearch" :key="index">
@@ -11,8 +11,8 @@
           <span class="icon-search icon" v-if="item.type === 2"></span>
         </div>
         <div class="hot-search-text-wrapper">
-          <div class="text" ref="searchText">{{item.text}}</div>
-          <div class="num" v-if="item.num">{{item.num}}人搜索</div>
+          <div class="text" ref="searchText">{{ item.text }}</div>
+          <div class="num" v-if="item.num">{{ item.num }} people searched this</div>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
-const resUrl = 'http://172.20.10.2:8010' // may change over time
-const dbHost = 'localhost'
-const dbUser = 'root'
-const dbPwd = 'Lyzyx19911007!'
+const resUrl = 'http://172.26.64.1:8010'; // may change over time
+const dbHost = 'localhost';
+const dbUser = 'root';
+const dbPwd = 'Lyzyx19911007!';
 
 const category = [
   'Biomedicine',
@@ -26,7 +26,7 @@ const category = [
   'PoliticalScienceAndInternationalRelations',
   'Psychology',
   'Statistics',
-]
+];
 
 module.exports = {
   resUrl,
@@ -34,4 +34,4 @@ module.exports = {
   dbHost,
   dbUser,
   dbPwd,
-}
+};
