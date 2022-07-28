@@ -1,50 +1,20 @@
-#### Shell Script
+eBook Reader
+---
+### Project Overview
+![Overview](ebook-full.gif)
 
-- ```shell
-   echo "start updating frontend..."
-   cd ~/imooc-ebook/vue-immoc-ebook
-   echo "updating source..."
-   git pull
-   echo "frontend building..."
-   npm run build
-   echo "frontend publish..."
-   rm -rf ~/nginx-1.5.4/upload/book
-   mv dist ~/nginx-1.5.4/upload/book
-   echo "finish updating frontend..."
+The eBook reader is built on top of Vue2 wit ePub.js engine and backed by Nginx. The core components and their main responsibilities are as follows:
 
-   echo "start updating backend..."
-   cd ~/imooc-ebook/node-immoc-ebook
-   echo "updating source..."
-   git pull
-   echo "stoping node server..."
-   kill -9 `ps -ef|grep node|grep app.js|awk '{print $2}'`
-   echo "restarting service..."
-   node app.js &
-   echo "finish updating backend..."
-  ```
+- Shelf Component: Store current reading eBooks. It supports adding, removing, and categorizing books into different groups. Extended features are caching and/or downloading eBooks into local devices and setting the privacy of eBook reading status.
+- Home Component: Store and categorize all eBooks. Users can choose an eBook by clicking its cover image, searching the book title, or using the flashcard to randomly pick one.
+- eBook Component: Online reader integrated with ePub.js. By unpacking epub files, it can successfully render book content, record current reading progress, and support full-text searching and highlighting. Besides, switching between multiple themes and fonts (including font family and font size) are also implemented for a better user experience.
+- Detail Component: List all the details of an eBook, including a brief description and a table of contents.
+The backend routes are set up with Node.js and express. Currently, all epub files and images are stored locally and delivered by Nginx server. 
 
-  - using `./` to execute .sh file
+> As this application only focuses on the business logic and functionalities develpoment, the available resources are limited. Most eBooks come with mock content, or even just with the cover pictures.
 
-## Two Ways of Start Program
+### How to Start
 
-- **Run on `frontend` -- `Online Server`**
-  - Make changes to the following files
-    - `.env.development`
-      ```
-      VUE_APP_EPUB_URL=http://47.99.166.157/epub
-      VUE_APP_EPUB_OPF_URL=http://47.99.166.157/epub2
-      VUE_APP_RES_URL=http://47.99.166.157/book/res
-      VUE_APP_BASE_URL=http://47.99.166.157:3000
-      VUE_APP_VOICE_URL=http://47.99.166.157:3000
-      VUE_APP_BOOK_URL=http://47.99.166.157:3000
-      ```
-    - `/views/store/StoreHome.vue`
-      - `data.guessLikes = data.guessYouLike`
-      - comment out `<carousel> & children <Slide>` elements
-      - restore `<div class="banner-wrapper">` element (mock)
-    - `vue.config.js`
-      - comment out `function mock(){}` & `before(app){...}`
-        <br>
 - **Run on `Local Server`-- `Nginx`**
 
   1.  Run `npm run dev` in `/frontend`, check the IP address
@@ -58,15 +28,8 @@
       - change to online IP address, do the fix above;
       - otherwise, make it to local IP address, fetch from local nginx
 
-  <br>
-
-- `nginx -s stop` / `nginx -s quit` to stop nginx
-- `ps -ef|grep node` check node server status
-- `kill -9 PROCESS_ID`
-  <br>
-
----
-
-fake PayPal account in this app:
-user: sb-p60m476944604@business.example.com
-pw: Ldf6PV=q
+```
+nginx -s stop / nginx -s quit => to stop nginx
+ps -ef|grep node => check node server status
+kill -9 PROCESS_ID
+```
